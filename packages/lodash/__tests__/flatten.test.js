@@ -1,7 +1,7 @@
 'use strict';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const lodash = require('..');
+const lodash = require('../');
 const { flatten } = lodash;
 
 describe('lodash flatten', () => {
@@ -12,8 +12,8 @@ describe('lodash flatten', () => {
 });
 
 describe('lodash async function', () => {
-  let value = 0;
-  let value2 = 0;
+  let value = [];
+  let value2 = [];
   beforeEach((done) => {
     setTimeout(() => {
       value = flatten([1, 2, [3, 4, [5, 6, [7, 8]]]], true);
