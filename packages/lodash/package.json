@@ -1,0 +1,41 @@
+{
+  "name": "@tiny/lodash",
+  "version": "0.0.0",
+  "description": "tiny lodash",
+  "keywords": [
+    "tiny",
+    "lodash"
+  ],
+  "author": "poplark <songkang666@126.com>",
+  "homepage": "https://github.com/poplark/tiny#readme",
+  "license": "MIT",
+  "main": "lib/lodash.js",
+  "module": "lib/lodash.esm.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poplark/tiny.git"
+  },
+  "scripts": {
+    "clean": "rm -rf lib && rm -rf types",
+    "start": "rollup -c --watch rollup.config.js",
+    "build": "rollup -c rollup.config.js",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --fix --ext .ts",
+    "test": "jasmine __tests__/lodash.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/poplark/tiny/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
