@@ -22,7 +22,7 @@ describe('lodash async function', () => {
   });
 
   beforeEach(() => {
-    return Promise.resolve(flatten([1, 2, [3, 4, [5, 6, [7, 8]]]], true)).then((x) => {
+    return Promise.resolve(flatten([1, [2, [3, [4]], 5]], true)).then((x) => {
       value2 = x;
       return x;
     });
@@ -30,6 +30,6 @@ describe('lodash async function', () => {
 
   it('should support async execution of test preparation and expectations', () => {
     expect(value.length).toBe(8);
-    expect(value2.length).toBe(8);
+    expect(value2.length).toBe(5);
   });
 });

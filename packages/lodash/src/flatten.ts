@@ -1,20 +1,17 @@
+import { isArray, DeepArray } from './utils';
 /**
- * Flattens `array` a single level deep.
- *
- * @since 0.1.0
- * @category Array
- * @param {Array} array The array to flatten.
- * @returns {Array} Returns the new flattened array.
- * @see flatMap, flatMapDeep, flatMapDepth, flattenDeep, flattenDepth
+ * Flattens `array`
+ * @param array The array to flatten.
+ * @param deep Is deep flatten?
+ * @returns Returns the new flattened array.
  * @example
  *
  * flatten([1, [2, [3, [4]], 5]])
  * // => [1, 2, [3, [4]], 5]
+ *
+ * flatten([1, [2, [3, [4]], 5]], true)
+ * // => [1, 2, 3, 4, 5]
  */
-type DeepArray<T> = ArrayLike<T | DeepArray<T>>;
-
-const isArray = Array.isArray;
-
 export function flatten<T>(array?: (DeepArray<T> | null), deep?: boolean): T[] {
   let result: T[] = [];
 
