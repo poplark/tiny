@@ -1,5 +1,6 @@
 export { flatten } from './flatten';
 export { debounce } from './debounce';
+export { throttle } from './throttle';
 /**
  * 版本号
  */

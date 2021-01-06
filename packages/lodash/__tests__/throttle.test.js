@@ -1,9 +1,9 @@
 'use strict';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { debounce } = require('..');
+const { throttle } = require('..');
 
-describe('test debounce function ', () => {
+describe('test throttle function ', () => {
   let result = 0;
   const cbs = {
     cb1: () => console.log('cb1 '),
@@ -11,13 +11,13 @@ describe('test debounce function ', () => {
   };
   beforeEach(() => {
     function resign(val, resolve, cb) {
-      console.log('debounce resign ', val);
       cbs[cb]();
+      console.log('throttle resign ', val);
       result = val;
       resolve(val);
     }
     return new Promise((resolve) => {
-      const x = debounce(resign, 10);
+      const x = throttle(resign, 10);
       spyOn(cbs, 'cb1');
       spyOn(cbs, 'cb2');
 
@@ -28,9 +28,9 @@ describe('test debounce function ', () => {
     });
   });
 
-  it(`test debounce twice`, () => {
-    expect(cbs.cb1).not.toHaveBeenCalled();
-    expect(cbs.cb2).toHaveBeenCalled();
-    expect(result).toBe(2);
+  it(`test throttle twice`, () => {
+    expect(cbs.cb1).toHaveBeenCalled();
+    expect(cbs.cb2).not.toHaveBeenCalled();
+    expect(result).toBe(1);
   });
 });
